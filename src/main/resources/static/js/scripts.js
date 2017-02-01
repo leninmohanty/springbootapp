@@ -175,7 +175,7 @@
 	$('form').submit(function(e){
 		e.preventDefault();
 		$('.loading').show();
-		$.post('/servlets/ContactUs', $('.form').serialize(), function(data){
+		$.post('/contactme', $('.form').serialize(), function(data){
 			$('.results').html(data);
 		}).success(function(){
 			$('.loading').hide();

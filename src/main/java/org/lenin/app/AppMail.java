@@ -7,25 +7,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
+
 @Component
-public class SendMail {
+public class AppMail {
 	@Autowired
 	private JavaMailSender javaMailSender;
 
-	public void send() {
+	public void send(String from, String to, String subject, String message) {
 		MimeMessage mail = javaMailSender.createMimeMessage();
 		try {
 			MimeMessageHelper helper = new MimeMessageHelper(mail, true);
-			helper.setTo("leninmohanty@gmail.com");
-			//helper.setReplyTo("someone@localhost");
-			helper.setFrom("admin@leninmohanty.com");
-			helper.setSubject("Lorem ipsum");
-			helper.setText("Lorem ipsum dolor sit amet [...]");
+			helper.setTo(to);
+			helper.setFrom(from);
+			helper.setSubject(subject);
+			helper.setText(message);
 		} catch (MessagingException e) {
 			e.printStackTrace();
 		} finally {
 		}
 		javaMailSender.send(mail);
-		// return helper;
 	}
 }

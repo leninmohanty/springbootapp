@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Odia Unicode to Akruti Sarala Converter</title>
+
+<style>
+</style>
+
+<script type="text/javascript">
+	function convert_to_unicode() {
+
+		var text_array = new Array(
+
+		" û", " ।", // purnacheda
+		"ö", " ।", // purnacheda
+		"÷÷÷", "", //
+		// double accented - AkrutiOriSarala
+		"£", "୍ମ", // ma phala
+		"à", "୍ମ", // ma phala
+		"á", "୍ମୃ", // (halanta)m-Rû
+		"â", "୍ର", // ra
+		"ã", "୍ର", // reph
+		"ä", "୍ଲ", // la phala
+		"å", "୍ଭ", // halanta- bha
+		"æ", "୍ଳ", // halanta-La
+		"ç", "୍ୱ", // ba phala
+		"è", "୍ସ", // halanta-sa
+		"ý", "୍ୟ", // ja phala
+		"¥", "୍ୟ", // ja phala
+		"ó", "ିଁ", // i kara
+
+		"Iß", "ୱ", //wa
+		"Wÿ", "ଡ଼", // Da with bindu
+		"Xÿ", "ଢ଼", // Dha with bindu
+		"Pÿ", "ଚ", // c
+		"[ô", "ଥି", // thi
+		"]ô", "ଧି", // dhi
+		"Lô", "ଖି", // khi
+		"cô", "ତ୍ମ", // tma
+		"_ô", "ତ୍ପ", // tma
+
+		"û", "ା", // aa kara
+		"ò", "ି", // i kara
+		"ú", "ୀ", // dirgha i kara
+		"ê", "ୁ", // u kara
+		"ë", "ୁ", // u kara
+		"ì", "ୂ", // dirgha i kara
+		"í", "ୂ", // dirgha u kara
+		"é", "ୃ", // ru kara
+
+		"ñ", "ଁ", // chandrabindu
+		"õ", "ଂ", // anuswara
+		"ü", "ଃ", // bisarga
+		"þ", "୍", //halanta
+		"¨", "୍‌", // halanta with zero width non-joiner
+		//"¨", "୍‍" , // halanta with zero width joiner
+		"1", "୧", // Numeric 1
+		"2", "୨", // Numeric 2
+		"3", "୩", // Numeric 3
+		"4", "୪", // Numeric 4
+		"5", "୫", // Numeric 5
+		"6", "୬", // Numeric 6
+		"7", "୭", // Numeric 7
+		"8", "୮", // Numeric 8
+		"9", "୯", // Numeric 9
+		"0", "୦", // Numeric 10
+		"#", "୰", // late
+		"$", "ଽ", "&", "ଌ", // lu
+		"*", "ଞ୍ଚ", // nc
+		"", "ଞ୍ଚ", // nc
+		"î", "୍ରୁ", // halanta-r-u
+		"ï", "୍ରୂ", // halanta-r-dirgha u
+
+		"Ð", "କ୍ଷ୍ଣ", // khya-N
+		"Ñ", "୍କ", // halanta-k
+		"Ò", "୍ଖ", // halanta-kh
+		"Ó", "୍ଗ", // halanta-g
+		"Ô", "୍ଚ", // halanta-c
+		"Õ", "୍ଜ", // halanta-j
+		"Ö", "୍ଟ", // halanta-T
+		"×", "୍ଠ", // halanta-Th
+		"Ø", "୍ଡ", // halanta-D
+		"Ù", "୍ଣ", // halanta-N
+		"Ú", "୍ଥ", // halanta-th
+		"Û", "୍ଧ", // halanta-dh
+		"Ü", "୍ନ", // halanta-n
+		"Ý", "୍ପ", // halanta-p
+		"Þ", "୍ଫ", // halanta-ph
+		"ß", "୍ୱ", // halanta-b
+
+		"<", "ଣ୍ଟ", // NT
+		"", "ଣ୍ଟ", // NT
+		"…", "ଟ୍ଟ", // TT
+		"μ", "ମ୍ପ", // mp
+		"µ", "ମ୍ପ", // mp
+		"¶", "ମ୍ଫ", // mph
+		"‰", "ଣ୍ଣ", // NN
+		"Š", "ଣ୍ଡ", // ND
+
+		"Œ", "ଣ୍ଠ", // NTh
+		"™", "ତ୍ମ", // tm
+		"š", "ତ୍ପ", // tp
+		"›", "ତ୍ସ", // ts
+		"œ", "ତ୍ସ୍ନ", // t-s-n
+		"Ÿ", "ଦ୍ଦ", // d-dh
+
+		"{", "ଜ୍ଜ", // jj
+		"|", "ଜ୍ଝ", // j-jh
+		"}", "କ୍ର", // kr
+
+		"¡", "ଦ୍ଧ", // d-dh
+		"¢", "ଦ୍ଘ", // d-gh
+		"¤", "ଧ୍ୟ", // dhya
+		"¦", "ନ୍ଦ", // nd
+		"§", "ନ୍ଧ", // ndh
+		"©", "ତ୍ତ", // tt
+		"", "ତ୍ତ", // tt
+		"ª", "ନ୍ତ୍ର", // ntr (jantra)
+		"«", "ନ୍ତ", // nt
+		"¬", "ଞ୍ଜ", // nj
+		"ƒ", "ଞ୍ଝ", // njh
+		"®", "ପ୍ପ", // pp
+		"¯", "ପ୍ତ", // pt
+
+		"°", "ପ୍ସ", // ps
+		"±", "ବ୍ଦ", // bd
+		"²", "ବ୍ଧ", // bdh
+		"´", "ମ୍ବ", // mb
+		"¸", "ମ୍ଭ", // mbh
+		" ̧", "ମ୍ଭ", // ***mbha
+		"̧", "ମ୍ଭ", // mbha
+		"¹", "ମ୍ମ", // mm
+		"º", "ଲ୍କ", // lk
+		"»", "ଲ୍ଗ", // lg
+		"¼", "ଶ୍ଛ", // Nch
+		"½", "ଶ୍ଚ", // S-ch (talabya sa - ca)
+		"¾", "ଷ୍ଣ", // sh-N (murdhanya sa - Na)
+		"¿", "ଷ୍ପ", // sh-p (murdhanya sa - pa)
+
+		"À", "ଷ୍ଫ", // sh-ph (murdhanya sa - pha)
+		"Á", "ଷ୍ଟ", // sh-T (murdhanya sa - Ta)
+		"Â", "ଷ୍ଠ", // sh-Th (murdhanya sa - Tha)
+		"Ã", "ଷ୍କ", // sh-k (murdhanya sa - ka)
+		"Ä", "ସ୍କ", // s-k
+		"Å", "ସ୍ଖ", // sh-kh
+		"Æ", "ସ୍ପ", // sp
+		"Ç", "ସ୍ଫ", // sph
+		"È", "ସ୍ତ୍ର", // str
+		"É", "ସ୍ତ", // st
+		"Ê", "ସ୍ୱ", // sb
+		"Ë", "ଳ୍କ", // lk
+		"Ì", "ଳ୍ପ", // Lp
+		"Í", "ଳ୍ଫ", // Lph
+		"Î", "ତ୍ଥ", // t-th
+		"", "ତ୍ଥ", // t-th
+		"Ï", "ଳ୍ଳ", // L-L
+
+		"@ା", "ଆ", // aa
+		"@", "ଅ", // a
+		"A", "ଇ", // i
+		"B", "ଈ", // dirgha i
+		"C", "ଉ", // u
+		"D", "ଊ", // dirgha u
+		"E", "ଋ", // R
+		"F", "ୠ", // RR
+		"G", "ଏ", // e
+		"H", "ଐ", // ai
+		"I", "ଓ", // o
+		"J", "ଔ", // au 
+
+		"K", "କ", // k
+		"L", "ଖ", // kh
+		"M", "ଗ", // g
+		"N", "ଘ", // gh
+		"O", "ଙ",
+
+		"P", "ଚ", // c
+		"Q", "ଛ", // ch
+		"R", "ଜ", // j
+		"S", "ଝ", // jh
+		"T", "ଞ", // Nya
+
+		"U", "ଟ", // T
+		"V", "ଠ", // Th
+		"W", "ଡ", // D
+		"X", "ଢ", // Dh
+		"Y", "ଣ", // N
+		"Z", "ତ", // t
+		"[", "ଥ", // th
+		"\\", "ଦ", // d
+		"]", "ଧ", // dh
+		"^", "ନ", // n
+		"~", "ଯ", // y
+		"_", "ପ", // p
+		"`", "ଫ", // ph
+		"a", "ବ", // b
+		"b", "ଭ", // bh
+		"c", "ମ", // m
+		"d", "ୟ", // y
+		"e", "ର", // r
+		"f", "ଲ", // l
+		"g", "ଶ", // S (talabya sa)
+		"h", "ଷ", // sh (murdhanya sa)
+		"i", "ସ", // s
+		"j", "ହ", // h
+		"k", "ଳ", // L
+		"l", "କ୍ଷ", // ksh
+		"m", "ଜ୍ଞ", // gya
+		"n", "ଦ୍ଭ", // d-bh
+		"o", "କ୍ଟ", // kT
+		"p", "କ୍ଟ୍ର", // kTr
+		"q", "କ୍ତ", // kt
+		"r", "କ୍ସ", // ks
+		"s", "ଗ୍ଦ", // gd
+		"t", "ଗ୍ଧ", // gdh
+		"u", "ଙ୍କ", "v", "ଙ୍ଖ", "w", "ଙ୍ଗ", "x", "ଙ୍ଘ", "y", "ଚ୍ଚ", "z", "ଚ୍ଛ",
+				" ̄", "ପ୍ତ", " ́", "ମ୍ବ", "‹", "ଣ୍ଢ", // ndha
+				"ଏø", " ଐ", // ai
+				"୍ଯ", "୍ୟ", // ja phala
+				" ̈", "୍‍", // halanta with ZWJ
+				"ଅା", "ଆ" // aa
+				//"" , "",
+				//"" , ""
+		)
+		//**********************************************
+
+		var text_array_length = text_array.length;
+
+		var modified_substring = document.getElementById("nonunicode_text").value;
+
+		Replace_text();
+
+		document.getElementById("unicode_text").value = modified_substring;
+
+		// --------------------------------------------------
+
+		function Replace_text()
+
+		{
+
+			if (modified_substring != "") // if string to be converted is non-blank then no need of any processing.
+			{
+				for (input_symbol_idx = 1; input_symbol_idx < text_array_length ; input_symbol_idx = input_symbol_idx + 2)
+
+				{
+					//******************************************************
+					idx = 0; // index of the symbol being searched for replacement
+
+					while (idx != -1) //while-00
+					{
+
+						modified_substring = modified_substring.replace(
+								text_array[input_symbol_idx],
+								text_array[input_symbol_idx - 1])
+						idx = modified_substring
+								.indexOf(text_array[input_symbol_idx])
+
+					} // end of while-00 loop
+
+				} // end of for loop
+
+				// following statements for adjusting position of e, ai, o and au maatraas.
+
+				modified_substring = modified_substring.replace(
+						/([ù])([କଖଗଘଙଚଛଜଝଞଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯୟରଲବୱଶଷସହକ୍ଷଡ଼ଳ])/g,
+						"$2$1");
+				//ଟଠଡଡ଼ଢଢ଼ଣତଥ
+				modified_substring = modified_substring.replace(
+						/([ù])([୍])([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥନପଫବଭମୟରଲବୱଶଷସହକ୍ଷଡ଼ଳ])/g,
+						"$2$3$1");
+
+				modified_substring = modified_substring.replace(
+						/([ù])([୍])([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥନପଫବଭମୟରଲବୱଶଷସହକ୍ଷଡ଼ଳ])/g,
+						"$2$3$1");
+
+				modified_substring = modified_substring.replace(/ùø/g, "ୌ");
+
+				modified_substring = modified_substring.replace(/ùା/g, "ୋ");
+
+				modified_substring = modified_substring.replace(/ù÷/g, "ୈ");
+
+				modified_substring = modified_substring.replace(/ù/g, "େ");
+
+				//following three statement for adjusting position of reph ie, half r .
+				modified_substring = modified_substring
+						.replace(
+								/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([ାିୀୁୂୃେୈୋୌଂଁ]*)à/g,
+								"ð$1$2");
+				modified_substring = modified_substring
+						.replace(
+								/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([ାିୀୁୂୃେୈୋୌଂଁ]*)ð/g,
+								"ð$1$2");
+
+				modified_substring = modified_substring.replace(
+						/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([୍])à/g,
+						"ð$1$2");
+				modified_substring = modified_substring.replace(
+						/([କଖଗଘଚଛଜଝଟଠଡଡ଼ଢଢ଼ଣତଥଦଧନପଫବଭମଯରଲଳଵଶଷସହକ୍ଷଜ୍ଞୟ])([୍])ð/g,
+						"ð$1$2");
+
+				modified_substring = modified_substring.replace(/ð/g, "ର୍");
+
+				modified_substring = modified_substring.replace(
+						/([ଂଁ])([ାିୀୁୂୃେୈୋୌ])/g, "$2$1");
+
+			} // end of IF  statement  meant to  suppress processing of  blank  string.
+
+		} // end of the function  Replace_Symbols
+
+	} // end of convert_to_unicode function
+
+	function SelectAll(id) {
+		document.getElementById(id).focus();
+		document.getElementById(id).select();
+	}
+</script>
+
+</head>
+
+<body bgcolor=#D3D3D3 style='tab-interval: 36.0pt'>
+
+	<div class=Section1>
+
+		<p align=center style='text-align: center'>
+			<font size="5" face="sans-serif"><b><span
+					style='color: #316E89'> Unicode Odia -Akruti Sarala 
+						converter </span></b></font><br />
+			<font face="sans-serif">Copy Unicode Odia text and paste
+				below</font>
+		</p>
+		<form name=form1>
+			<p align=center style='text-align: center'>
+				<TEXTAREA style="width: 1148px; height: 232px;" 10" COLS="110%"
+					NAME="TextToConvert" id="nonunicode_text"></TEXTAREA>
+			</p>
+
+<script>
+
+function convert(){
+	
+	value=document.getElementById("nonunicode_text").value;
+	console.log(value);
+	
+	
+	var myMap = {
+			"।":" û",// purnacheda
+			 " ।" :"ö" ,// purnacheda
+			 "":"÷÷÷",//
+			// double accented - AkrutiOriSarala
+			 "୍ମ" :"£" ,// ma phala
+			 "୍ମ" :"à" ,// ma phala
+			 "୍ମୃ" :"á" ,// (halanta)m-Rû
+			 "୍ର" :"â" ,// ra
+			 "୍ର" :"ã" ,// reph
+			 "୍ଲ" :"ä" ,// la phala
+			 "୍ଭ" :"å" ,// halanta- bha
+			 "୍ଳ" :"æ" ,// halanta-La
+			 "୍ୱ" :"ç" ,// ba phala
+			 "୍ସ" :"è" ,// halanta-sa
+			 "୍ୟ" :"ý",// ja phala
+			 "୍ୟ" :"¥",// ja phala
+			 "ିଁ" :"ó",// i kara
+
+			 "ୱ":"Iß" ,//wa
+			 "ଡ଼" :"Wÿ" ,// Da with bindu
+			 "ଢ଼" :"Xÿ" ,// Dha with bindu
+			 "ଚ" :"Pÿ" ,// c
+			 "ଥି" :"[ô" ,// thi
+			 "ଧି" :"]ô" ,// dhi
+			 "ଖି" :"Lô" ,// khi
+			 "ତ୍ମ" :"cô",// tma
+			 "ତ୍ପ" :"_ô",// tma
+
+			 "ା" :"û" ,// aa kara
+			 "ି" :"ò" ,// i kara
+			 "ୀ" :"ú" ,// dirgha i kara
+			 "ୁ" :"ê" ,// u kara
+			 "ୁ" :"ë" ,// u kara
+			 "ୂ" :"ì" ,// dirgha i kara
+			  "ୂ" :"í" ,// dirgha u kara
+			 "ୃ" :"é" ,// ru kara
+
+			 "ଁ" :"ñ",// chandrabindu
+			 "ଂ" :"õ",// anuswara
+			 "ଃ" :"ü",// bisarga
+			 "୍" :"þ",//halanta
+			 "୍‌" :"¨",// halanta with zero width non-joiner
+			//"¨":"୍‍" :// halanta with zero width joiner
+			 "୧" :"1" ,// Numeric 1
+			 "୨" :"2" ,// Numeric 2
+			 "୩" :"3" ,// Numeric 3
+			 "୪" :"4" ,// Numeric 4
+			 "୫" :"5" ,// Numeric 5
+			 "୬" :"6" ,// Numeric 6
+			 "୭" :"7" ,// Numeric 7
+			 "୮" :"8" ,// Numeric 8
+			 "୯" :"9" ,// Numeric 9
+			 "୦" :"0" ,// Numeric 10
+			 "୰" :"#" ,// late
+			 "ଽ" :"$" ,
+			 "ଌ" :"&" ,// lu
+			 "ଞ୍ଚ" :"*" ,// nc
+			  "ଞ୍ଚ" :"" ,// nc
+			 "୍ରୁ" :"î" ,// halanta-r-u
+			 "୍ରୂ" :"ï" ,// halanta-r-dirgha u
+
+			 "କ୍ଷ୍ଣ" :"Ð" ,// khya-N
+			 "୍କ" : "Ñ" ,// halanta-k
+			 "୍ଖ" :"Ò" ,// halanta-kh
+			 "୍ଗ" :"Ó" ,// halanta-g
+			 "୍ଚ" :"Ô" ,// halanta-c
+			 "୍ଜ" :"Õ" ,// halanta-j
+			 "୍ଟ" :"Ö" ,// halanta-T
+			 "୍ଠ" :"×" ,// halanta-Th
+			 "୍ଡ" :"Ø" ,// halanta-D
+			 "୍ଣ" :"Ù" ,// halanta-N
+			 "୍ଥ" :"Ú" ,// halanta-th
+			 "୍ଧ" :"Û" ,// halanta-dh
+			 "୍ନ" :"Ü" ,// halanta-n
+			 "୍ପ" :"Ý" ,// halanta-p
+			 "୍ଫ" :"Þ" ,// halanta-ph
+			 "୍ୱ" :"ß" ,// halanta-b
+
+			 "ଣ୍ଟ" :"<" ,// NT
+			 "ଣ୍ଟ" :"" ,// NT
+			 "ଟ୍ଟ" :"…" ,// TT
+			 "ମ୍ପ" :"μ" ,// mp
+			 "ମ୍ପ" :"µ" ,// mp
+			 "ମ୍ଫ" :"¶" ,// mph
+			 "ଣ୍ଣ" :"‰" ,// NN
+			 "ଣ୍ଡ" :"Š" ,// ND
+
+			 "ଣ୍ଠ" :"Œ" ,// NTh
+			 "ତ୍ମ" :"™" ,// tm
+			 "ତ୍ପ" :"š" ,// tp
+			 "ତ୍ସ" :"›" ,// ts
+			 "ତ୍ସ୍ନ" :"œ" ,// t-s-n
+			 "ଦ୍ଦ" :"Ÿ" ,// d-dh
+
+
+			 "ଜ୍ଜ" :"{" ,// jj
+			 "ଜ୍ଝ" :"|" ,// j-jh
+			 "କ୍ର" :"}" ,// kr
+
+			 "ଦ୍ଧ" :"¡" ,// d-dh
+			 "ଦ୍ଘ" :"¢" ,// d-gh
+			 "ଧ୍ୟ" :"¤" ,// dhya
+			 "ନ୍ଦ" :"¦" ,// nd
+			 "ନ୍ଧ" :"§" ,// ndh
+			 "ତ୍ତ" :"©" ,// tt
+			 "ତ୍ତ" :"" ,// tt
+			 "ନ୍ତ୍ର" :"ª" ,// ntr (jantra)
+			 "ନ୍ତ" :"«" ,// nt
+			 "ଞ୍ଜ" :"¬" ,// nj
+			 "ଞ୍ଝ" :"ƒ" ,// njh
+			 "ପ୍ପ" :"®" ,// pp
+			 "ପ୍ତ" :"¯" ,// pt
+
+			 "ପ୍ସ" :"°",// ps
+			 "ବ୍ଦ" :"±" ,// bd
+			 "ବ୍ଧ" :"²" ,// bdh
+			 "ମ୍ବ" :"´" ,// mb
+			 "ମ୍ଭ" :"¸" ,// mbh
+			 "ମ୍ଭ":" ̧" ,// ***mbha
+			 "ମ୍ଭ":"̧" ,// mbha
+			 "ମ୍ମ" :"¹" ,// mm
+			 "ଲ୍କ" :"º" ,// lk
+			 "ଲ୍ଗ" :"»" ,// lg
+			 "ଶ୍ଛ" :"¼" ,// Nch
+			 "ଶ୍ଚ" :"½" ,// S-ch (talabya sa - ca)
+			 "ଷ୍ଣ" :"¾" ,// sh-N (murdhanya sa - Na)
+			 "ଷ୍ପ" :"¿" ,// sh-p (murdhanya sa - pa)
+
+			 "ଷ୍ଫ" :"À" ,// sh-ph (murdhanya sa - pha)
+			 "ଷ୍ଟ" :"Á" ,// sh-T (murdhanya sa - Ta)
+			 "ଷ୍ଠ" :"Â" ,// sh-Th (murdhanya sa - Tha)
+			 "ଷ୍କ" :"Ã" ,// sh-k (murdhanya sa - ka)
+			 "ସ୍କ" :"Ä" ,// s-k
+			 "ସ୍ଖ" :"Å" ,// sh-kh
+			 "ସ୍ପ" :"Æ" ,// sp
+			 "ସ୍ଫ" :"Ç" ,// sph
+			 "ସ୍ତ୍ର" :"È" ,// str
+			 "ସ୍ତ" :"É" ,// st
+			 "ସ୍ୱ" :"Ê" ,// sb
+			 "ଳ୍କ" :"Ë" ,// lk
+			 "ଳ୍ପ" :"Ì" ,// Lp
+			 "ଳ୍ଫ" :"Í" ,// Lph
+			 "ତ୍ଥ" :"Î" ,// t-th
+			 "ତ୍ଥ" :"" ,// t-th
+			 "ଳ୍ଳ" :"Ï" ,// L-L
+
+			 "ଆ" :"@û" ,// aa
+			 "ଅ" :"@" ,// a
+			 "ଇ" :"A" ,// i
+			 "ଈ" :"B" ,// dirgha i
+			 "ଉ" :"C" ,// u
+			 "ଊ" :"D" ,// dirgha u
+			 "ଋ" :"E" ,// R
+			 "ୠ" :"F" ,// RR
+			 "ଏ" :"G" ,// e
+			 "ଐ" :"H" ,// ai
+			 "ଓ" :"I" ,// o
+			 "ଔ" :"J" ,// au 
+
+			 "କ" :"K" ,// k
+			 "ଖ" :"L" ,// kh
+			 "ଗ" :"M" ,// g
+			 "ଘ" :"N" ,// gh
+			 "ଙ" :"O" ,
+
+			 "ଚ": "P" ,// c
+			 "ଛ":"Q" ,// ch
+			 "ଜ":"R" ,// j
+			 "ଝ":"S" ,// jh
+			 "ଞ":"T" ,// Nya
+
+			 "ଟ" :"U",// T
+			 "ଠ" :"V",// Th
+			 "ଡ" :"W",// D
+			 "ଢ" :"X",// Dh
+			 "ଣ" :"Y",// N
+			 "ତ" :"Z" ,// t
+			 "ଥ" :"[" ,// th
+			 "ଦ" :"\\" ,// d
+			 "ଧ" :"]" ,// dh
+			 "ନ" :"^",// n
+			 "ଯ" :"~" ,// y
+			 "ପ":"_" ,// p
+			 "ଫ":"`" ,// ph
+			 "ବ":"a" ,// b
+			 "ଭ":"b" ,// bh
+			 "ମ":"c" ,// m
+			 "ୟ" :"d" ,// y
+			 "ର" :"e" ,// r
+			 "ଲ" :"f" ,// l
+			 "ଶ" :"g" ,// S (talabya sa)
+			 "ଷ" :"h" ,// sh (murdhanya sa)
+			 "ସ" :"i" ,// s
+			 "ହ" :"j" ,// h
+			 "ଳ" :"k" ,// L
+			 "କ୍ଷ" :"l" ,// ksh
+			 "ଜ୍ଞ" :"m" ,// gya
+			 "ଦ୍ଭ" :"n" ,// d-bh
+			 "କ୍ଟ" :"o" ,// kT
+			 "କ୍ଟ୍ର" :"p" ,// kTr
+			 "କ୍ତ" :"q" ,// kt
+			 "କ୍ସ" :"r" ,// ks
+			 "ଗ୍ଦ" :"s" ,// gd
+			 "ଗ୍ଧ" :"t" ,// gdh
+			 "ଙ୍କ" :"u" ,
+			 "ଙ୍ଖ" :"v" ,
+			 "ଙ୍ଗ" :"w" ,
+			 "ଙ୍ଘ" :"x" ,
+			 "ଚ୍ଚ" :"y" ,
+			 "ଚ୍ଛ" :"z" ,
+			 "ପ୍ତ":" ̄",
+			 "ମ୍ବ":" ́",
+			 "ଣ୍ଢ" :"‹",// ndha
+			 "ଐ":"ଏø",// ai
+			 "୍ୟ":"୍ଯ" ,// ja phala
+			 "୍‍":" ̈",// halanta with ZWJ
+			 " " : " ",
+			 "," : ",",
+			"େ" : "ù",
+			"ୋ" : "ùା"
+		};
+	
+	var finaltext="";
+	for(i=0;i<value.length;i++){
+		mchar=value[i];
+		schar=myMap[mchar];
+		if(schar==undefined)
+			finaltext+=mchar;
+		else
+			finaltext+=schar;
+ 		console.log(value[i]);
+		
+	}
+	document.getElementById("unicode_text").value=finaltext;
+	console.log(finaltext);
+}
+
+</script>
+
+</div>
+			<p align=center style='text-align: center'>
+				<input type=button name=converter id=converter value=" CONVERT "
+					style="width: 90px; float: center; background-color: #4AAAD1; color: #FFFFFF; font-weight: bold; margin-left: 4px; padding: 8px;"
+					accesskey=c title="Alt + Shift + c"
+					onclick="convert(), SelectAll('unicode_text');"><br />
+				<br />
+				<align =center style='text-align:center'>
+				<font size="3" face="sans-serif">Converted Akruti text below<br />
+					<p align=center style='text-align: center'>
+						<TEXTAREA style="width: 1150px; height: 495px;" ROWS="30%"
+							COLS="110%" NAME="ConvertedText" id="unicode_text"></TEXTAREA>
+						<o:p></o:p>
+					</p>
+		</form>
+
+		<p align=center style='text-align: center'>
+			<span style='color: #515151'>www.leninmohanty.com</span>
+		</p>
+
+	</div>
+
+</body>
+
+</html>

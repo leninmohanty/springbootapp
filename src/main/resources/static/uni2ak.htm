@@ -561,7 +561,6 @@ function convert(){
 			 " " : " ",
 			 "," : ",",
 			"େ" : "ù",
-			"ୋ" : "ùା"
 		};
 	
 	var finaltext="";
@@ -573,6 +572,9 @@ function convert(){
 		else{
 			if(mchar=="େ"){
 				finaltext=finaltext.substring(0,finaltext.length-1)+schar+finaltext.substring(finaltext.length-1,finaltext.length);
+			}
+			if(mchar=="ୋ"){
+				finaltext=finaltext.substring(0,finaltext.length-1)+'ù'+finaltext.substring(finaltext.length-1,finaltext.length)+'û';
 			}
 			else{
 			finaltext+=schar;

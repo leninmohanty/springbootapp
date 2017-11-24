@@ -340,8 +340,6 @@
 function convert(){
 	
 	value=document.getElementById("nonunicode_text").value;
-	console.log(value);
-	
 	
 	var myMap = {
 			"।":" û",// purnacheda
@@ -572,14 +570,23 @@ function convert(){
 		schar=myMap[mchar];
 		if(schar==undefined)
 			finaltext+=mchar;
-		else
+		else{
+			if(mchar=="େ"){
+				finaltext=finaltext.substring(0,finaltext.length-1)+schar+finaltext.substring(finaltext.length-1,finaltext.length);
+			}
+			else{
 			finaltext+=schar;
+			}
+		}
  		console.log(value[i]);
 		
 	}
+	//postProcess(finaltext);
 	document.getElementById("unicode_text").value=finaltext;
-	console.log(finaltext);
+	//console.log(finaltext);
 }
+
+
 
 </script>
 

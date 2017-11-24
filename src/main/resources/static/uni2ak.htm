@@ -561,31 +561,31 @@ function convert(){
 			 " " : " ",
 			 "," : ",",
 			"େ" : "ù",
+			"ୋ" : "ùା"
 		};
 	
 	var finaltext="";
 	for(i=0;i<value.length;i++){
 		mchar=value[i];
+		console.log(value[i]);
 		schar=myMap[mchar];
 		if(schar==undefined)
 			finaltext+=mchar;
 		else{
-			if(mchar=="େ"){
-				finaltext=finaltext.substring(0,finaltext.length-1)+schar+finaltext.substring(finaltext.length-1,finaltext.length);
-			}
-			if(mchar=="ୋ"){
-				finaltext=finaltext.substring(0,finaltext.length-1)+'ù'+finaltext.substring(finaltext.length-1,finaltext.length)+'û';
-			}
-			else{
-			finaltext+=schar;
-			}
+			
+			switch(mchar) {
+		    case "େ" :
+		    	finaltext=finaltext.substring(0,finaltext.length-1)+schar+finaltext.substring(finaltext.length-1,finaltext.length);
+		        break;
+		    case "ୋ" :
+		    	finaltext=finaltext.substring(0,finaltext.length-1)+'ù'+finaltext.substring(finaltext.length-1,finaltext.length)+'û';
+		        break;
+		    default:
+		    	finaltext+=schar;
 		}
- 		console.log(value[i]);
-		
+		}
 	}
-	//postProcess(finaltext);
 	document.getElementById("unicode_text").value=finaltext;
-	//console.log(finaltext);
 }
 
 
